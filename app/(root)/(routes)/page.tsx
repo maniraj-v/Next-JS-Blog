@@ -1,10 +1,10 @@
-import Header from "@/components/Header";
-import Image from "next/image";
+import { allBlogs } from "contentlayer/generated";
+import HomeCoverSection from "./components/HomeCoverSection";
 
 export default function Home() {
   return (
     <main>
-      <Header />
+      <HomeCoverSection blogs={allBlogs} />
     </main>
   );
 }

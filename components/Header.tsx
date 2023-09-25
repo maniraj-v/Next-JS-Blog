@@ -6,7 +6,7 @@ import { MoonIcon, SunIcon } from "@/Icons";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-6 right-1/2 translate-x-1/2 font-medium">
+    <nav className="fixed top-6 right-1/2 translate-x-1/2 font-medium z-50">
       <ul className="flex items-center gap-4 border border-dark bg-light/80 backdrop-blur-sm rounded-full py-3 px-8">
         {appNavigation.map(({ name, href }) => {
           return (

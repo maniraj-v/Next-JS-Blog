@@ -30,7 +30,9 @@ const HomeCoverSection = ({ blogs }: { blogs: Blog[] }) => {
         />
         <Link href={mostRecentBlog.url}>
           <h2 className="font-bold text-4xl capitalize">
-            {mostRecentBlog.title}
+            <span className="hover-underline-translate">
+              {mostRecentBlog.title}
+            </span>
           </h2>
         </Link>
         <p className="text-xl font-in">{mostRecentBlog.description}</p>

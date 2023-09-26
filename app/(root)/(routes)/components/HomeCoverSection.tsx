@@ -7,7 +7,7 @@ import Link from "next/link";
 const HomeCoverSection = ({ blogs }: { blogs: Blog[] }) => {
   const mostRecentBlog: Blog = blogs.sort((a, b) =>
     compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
-  )[1];
+  )[0];
 
   return (
     <section className="w-full h-[85vh] flex relative mt-1 rounded-3xl overflow-hidden">

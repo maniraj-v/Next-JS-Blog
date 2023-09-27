@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Logo from "@/assets/profile-img.png";
 import Link from "next/link";
-import { appNavigation, socialNavigation } from "@/constants/navigation";
+import { appNavigation } from "@/constants/navigation";
 import { MoonIcon, SunIcon } from "@/Icons";
+import SocialLinks from "./SocialLinks";
 
 const Navbar = () => {
   return (
@@ -22,25 +23,6 @@ const Navbar = () => {
         </li>
       </ul>
     </nav>
-  );
-};
-
-const SocialLinks = () => {
-  return (
-    <ul className="flex items-center gap-4 h-auto">
-      {socialNavigation.map(({ name, href, icon }) => {
-        return (
-          <li
-            key={name}
-            className="w-6 h-6 hover:scale-125 transition-all duration-200"
-          >
-            <a href={href} title={name}>
-              {icon}
-            </a>
-          </li>
-        );
-      })}
-    </ul>
   );
 };
 

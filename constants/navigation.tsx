@@ -24,7 +24,7 @@ export const socialNavigation = [
   {
     name: "Github",
     href: "https://github.com/maniraj-v",
-    icon: <GithubIcon />,
+    icon: <GithubIcon className="bg-light rounded-full" />,
   },
   {
     name: "Twitter",

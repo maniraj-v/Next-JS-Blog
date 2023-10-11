@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     max-width: 1440px;
     margin: 0 auto;
@@ -19,4 +22,21 @@
   .hover-underline-translate-sm {
     @apply bg-gradient-to-r from-accent to-accent dark:from-accentDark/50  dark:to-accentDark/50 bg-[length:0px_4px] hover:bg-[length:100%_4px] bg-left-bottom bg-no-repeat transition-[background-size] duration-500;
   }
+}
+
+h1 > a > .icon.icon-link::before,
+h2 > a > .icon.icon-link::before,
+h3 > a > .icon.icon-link::before {
+  content: "#";
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: purple;
+}
+
+h1 > a > .icon.icon-link:hover,
+h2 > a > .icon.icon-link:hover,
+h3 > a > .icon.icon-link:hover {
+  scale: 1.2 !important;
 }

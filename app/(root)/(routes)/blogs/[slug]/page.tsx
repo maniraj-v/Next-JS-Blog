@@ -3,6 +3,7 @@ import { allBlogs } from "contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
 import CoverSection from "./components/CoverSection";
+import InfoHeader from "./components/InfoHeader";
 
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
@@ -14,6 +15,7 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
   return (
     <>
       <CoverSection blog={blog} />
+      <InfoHeader blog={blog} />
     </>
   );
 }

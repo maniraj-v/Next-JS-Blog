@@ -1,3 +1,18 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "prettier/prettier": ["off"],
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-uses-react": "off",
+    "no-console": "warn",
+    "no-unused-vars": "warn",
+    "import/prefer-default-export": "off",
+    "import/no-anonymous-default-export": "off",
+    "import/no-cycle": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-unresolved": [2, { "caseSensitive": false }],
+    "react/prop-types": ["off"],
+    "react/jsx-no-constructed-context-values": "off"
+  }
 }

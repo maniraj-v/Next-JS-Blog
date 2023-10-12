@@ -1,4 +1,3 @@
-import Tag from "@/components/Elements/Tag";
 import { dateFormat } from "@/lib/utils";
 import { Blog } from "contentlayer/generated";
 import { slug } from "github-slugger";

@@ -6,7 +6,6 @@ const TableOfContent = ({ blog }: { blog: Blog }) => {
       <summary className="text-lg font-medium">Table of Content</summary>
       <ul className="mt-4">
         {blog.toc.map(({ level, text, slug }: Record<string, string>) => {
-          console.log({ level });
           const listStyle = level === "two" ? "list-none" : "list-disc ml-8";
           return (
             <li key={slug} className={"my-2 " + listStyle}>

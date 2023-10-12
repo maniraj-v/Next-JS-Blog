@@ -1,6 +1,4 @@
-import Tag from "@/components/Elements/Tag";
 import { allBlogs } from "contentlayer/generated";
-import Link from "next/link";
 import CoverSection from "./components/CoverSection";
 import InfoHeader from "./components/InfoHeader";
 import BlogContent from "./components/BlogContent";

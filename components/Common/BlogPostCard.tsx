@@ -1,7 +1,5 @@
-import Tag from "@/components/Elements/Tag";
 import { dateFormat } from "@/lib/utils";
 import { Blog } from "contentlayer/generated";
-import { compareDesc } from "date-fns";
 import { slug } from "github-slugger";
 import Image from "next/image";
 import Link from "next/link";

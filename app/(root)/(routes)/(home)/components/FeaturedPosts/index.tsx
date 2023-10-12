@@ -1,8 +1,5 @@
-import Tag from "@/components/Elements/Tag";
 import { Blog } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import Image from "next/image";
-import Link from "next/link";
 import LayoutOne from "./LayoutOne";
 import LayoutTwo from "./LayoutTwo";
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 "use client";
 import SocialLinks from "./SocialLinks";
 import { useForm } from "react-hook-form";
@@ -8,7 +9,7 @@ const Footer = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data: object) => console.log(data);
   console.log(errors);
 
   return (

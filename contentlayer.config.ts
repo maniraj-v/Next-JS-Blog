@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
+import readingTime from "reading-time";
 
 export const Blog = defineDocumentType(() => ({
   name: "Blog",
@@ -43,6 +44,12 @@ export const Blog = defineDocumentType(() => ({
     url: {
       type: "string",
       resolve: (doc) => `/blogs/${doc._raw.flattenedPath}`,
+    },
+    readingTime: {
+      type: "json",
+      resolve: (doc) => {
+        return readingTime(doc.body.raw);
+      },
     },
   },
 }));

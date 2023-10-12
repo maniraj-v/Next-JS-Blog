@@ -1,6 +1,7 @@
 import Tag from "@/components/Elements/Tag";
 import { Blog } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
+import { slug } from "github-slugger";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,6 +9,7 @@ const HomeCoverSection = ({ blogs }: { blogs: Blog[] }) => {
   const mostRecentBlog: Blog = blogs.sort((a, b) =>
     compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
   )[0];
+  const tag = mostRecentBlog.tags ? slug(mostRecentBlog.tags[0]) : "";
 
   return (
     <section className="w-full h-[85vh] flex relative mt-1 rounded-3xl overflow-hidden">
@@ -24,8 +26,8 @@ const HomeCoverSection = ({ blogs }: { blogs: Blog[] }) => {
       {/* Image Overlay Text */}
       <article className="w-3/4 absolute bottom-0 pb-16 pl-16 text-light flex flex-col gap-4">
         <Tag
-          href={mostRecentBlog.tags ? mostRecentBlog.tags[0] : ""}
-          name={mostRecentBlog.tags ? mostRecentBlog.tags[0] : ""}
+          href={`/categories/${tag}`}
+          name={tag}
           className="self-start mb-2"
         />
         <Link href={mostRecentBlog.url}>

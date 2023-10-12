@@ -2,10 +2,12 @@ import Tag from "@/components/Elements/Tag";
 import { dateFormat } from "@/lib/utils";
 import { Blog } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
+import { slug } from "github-slugger";
 import Image from "next/image";
 import Link from "next/link";
 
 const Post = ({ blog }: { blog: Blog }) => {
+  const tag = blog.tags ? slug(blog.tags[0]) : "";
   return (
     <div className="flex flex-col items-center gap-4">
       <div className="group rounded-xl overflow-hidden h-[13rem]">
@@ -21,11 +23,9 @@ const Post = ({ blog }: { blog: Blog }) => {
       </div>
       {/* Image Sideways Text */}
       <article className="text-dark flex flex-col gap-2">
-        {blog.tags && (
-          <Link href={blog.tags ? blog.tags[0] : ""}>
-            <p className="uppercase text-sm text-accent font-semibold">
-              {blog.tags[0]}
-            </p>
+        {tag && (
+          <Link href={`/categories/${tag}`}>
+            <p className="uppercase text-sm text-accent font-semibold">{tag}</p>
           </Link>
         )}
         <Link href={blog.url}>
@@ -46,9 +46,12 @@ const RecentPosts = ({ blogs }: { blogs: Blog[] }) => {
     <section className="w-100 my-24 px-16">
       <div className="flex justify-between items-center">
         <p className="text-4xl font-bold ">Recent Posts</p>
-        <Link href="/categories/all"
-        className="text-lg text-accent underline font-semibold"
-        >view all</Link>
+        <Link
+          href="/categories/all"
+          className="text-lg text-accent underline font-semibold"
+        >
+          view all
+        </Link>
       </div>
       <div className="grid grid-cols-3 gap-12 mt-16">
         {blogs.slice(4, 10).map((blog) => {

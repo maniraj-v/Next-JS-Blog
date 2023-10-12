@@ -1,9 +1,12 @@
 import Tag from "@/components/Elements/Tag";
 import { Blog } from "contentlayer/generated";
+import { slug } from "github-slugger";
 import Image from "next/image";
 import Link from "next/link";
 
 const LayoutOne = ({ blog }: { blog: Blog }) => {
+  const tag = blog.tags ? slug(blog.tags[0]) : "";
+
   return (
     <div className="relative rounded-xl overflow-hidden group">
       <Image
@@ -20,8 +23,8 @@ const LayoutOne = ({ blog }: { blog: Blog }) => {
       {/* Image Overlay Text */}
       <article className="absolute bottom-0 pb-8 px-12 text-light flex flex-col gap-4">
         <Tag
-          href={blog.tags ? blog.tags[0] : ""}
-          name={blog.tags ? blog.tags[0] : ""}
+          href={`/categories/${tag}`}
+          name={tag}
           className="self-start mb-2 border text-sm"
         />
         <Link href={blog.url}>

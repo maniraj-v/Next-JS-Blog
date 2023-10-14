@@ -4,6 +4,15 @@ import InfoHeader from "./components/InfoHeader";
 import BlogContent from "./components/BlogContent";
 import TableOfContent from "./components/TableOfContent";
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  return allBlogs.map((blog) => {
+    return {
+      slug: blog._raw.flattenedPath,
+    };
+  });
+}
+
 export default function BlogPost({ params }: { params: { slug: string } }) {
   const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
 

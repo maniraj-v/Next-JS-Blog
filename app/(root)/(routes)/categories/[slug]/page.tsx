@@ -4,6 +4,23 @@ import { cn } from "@/lib/utils";
 import { allBlogs } from "contentlayer/generated";
 import { slug } from "github-slugger";
 
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const categories = new Set(["all"]);
+  allBlogs.forEach((blog) => {
+    if (blog.tags) {
+      blog.tags.forEach((tag) => {
+        categories.add(slug(tag));
+      });
+    }
+  });
+  return Array.from(categories).map((category) => {
+    return {
+      slug: category,
+    };
+  });
+}
+
 export default function Categories({ params }: { params: { slug: string } }) {
   let categories = new Set(["all"]);
   const filteredBlogs = allBlogs.filter((blog) => {

@@ -24,6 +24,19 @@ const config: Config = {
         in: ["var(--font-in)"],
         mr: ["var(--font-mr)"],
       },
+      animation: {
+        "infinite-loop": "loop 20s linear infinite",
+      },
+      keyframes: {
+        loop: {
+          "0%": {
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/forms"), require("@tailwindcss/typography")],

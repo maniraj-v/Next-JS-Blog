@@ -42,7 +42,7 @@ export default function Categories({ params }: { params: { slug: string } }) {
   });
 
   return (
-    <section>
+    <main className="px-10">
       <div className="max-w-4xl px-16 pt-12 pb-6">
         <h1 className="text-5xl font-medium leading-normal">#{params.slug}</h1>
         <p>Discover more categories and expand your knowledge!</p>
@@ -69,6 +69,6 @@ export default function Categories({ params }: { params: { slug: string } }) {
           return <BlogPostCard key={blog._id} blog={blog} />;
         })}
       </div>
-    </section>
+    </main>
   );
 }

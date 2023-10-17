@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "@/assets/profile-img.png";
+import Logo from "@/public/assets/profile-img.png";
 import Link from "next/link";
 import { appNavigation } from "@/constants/navigation";
 import { MoonIcon, SunIcon } from "@/Icons";

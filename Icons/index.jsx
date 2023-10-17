@@ -1,5 +1,5 @@
-import React from "react";
-import { cn } from "@/lib/utils.ts";
+/* eslint-disable react/jsx-filename-extension */
+import { cn } from "@/lib/utils";
 
 export const SunIcon = ({ className = "", ...rest }) => (
   <svg

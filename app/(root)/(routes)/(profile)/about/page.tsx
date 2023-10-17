@@ -2,6 +2,12 @@ import Image from "next/image";
 import CharacterImage from "@/public/assets/character.png";
 import SkillSets from "./components/SkillSets";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About me",
+  description: "Skills and Achivements about myself",
+};
 
 export default function About() {
   return (

@@ -3,6 +3,43 @@ import CoverSection from "./components/CoverSection";
 import InfoHeader from "./components/InfoHeader";
 import BlogContent from "./components/BlogContent";
 import TableOfContent from "./components/TableOfContent";
+import type { Metadata } from "next";
+import { siteMetaData } from "@/constants/siteMetaData";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const blog = allBlogs.find((blog) => blog._raw.flattenedPath === params.slug);
+  if (!blog) {
+    return {};
+  }
+  const metaImage = blog.image?.filePath
+    ? [siteMetaData.siteUrl + blog.image?.filePath.replace("../public", "")]
+    : [siteMetaData.socialBanner];
+
+  return {
+    title: blog.title,
+    description: blog.description,
+    openGraph: {
+      title: blog.title,
+      description: blog.description,
+      url: siteMetaData.siteUrl + blog.url,
+      siteName: siteMetaData.title,
+      images: metaImage,
+      locale: "en_US",
+      type: "website",
+    },
+    authors: [{ name: blog.author || siteMetaData.author }],
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description,
+      images: metaImage,
+    },
+  };
+}
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {

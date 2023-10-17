@@ -1,6 +1,12 @@
 import Image from "next/image";
 import ContactForm from "./ContactForm";
 import connectingPeople from "../../../../../public/assets/connecting-people.svg";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact Me",
+  description: "Fill your details in the form to connect",
+};
 
 export default function Contact() {
   return (

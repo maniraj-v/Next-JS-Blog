@@ -1,5 +1,5 @@
 import { GithubIcon, LinkedinIcon, TwitterIcon } from "@/Icons";
-
+import { siteMetaData } from "@/constants/siteMetaData";
 export const appNavigation = [
   {
     name: "Home",
@@ -18,17 +18,17 @@ export const appNavigation = [
 export const socialNavigation = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com/in/mani-raj-velrajan",
+    href: siteMetaData.linkedin,
     icon: <LinkedinIcon />,
   },
   {
     name: "Github",
-    href: "https://github.com/maniraj-v",
+    href: siteMetaData.github,
     icon: <GithubIcon className="bg-light rounded-full" />,
   },
   {
     name: "Twitter",
-    href: "https://twitter.com",
+    href: siteMetaData.twitter,
     icon: <TwitterIcon />,
   },
 ];

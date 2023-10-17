@@ -3,6 +3,22 @@ import Tag from "@/components/Elements/Tag";
 import { cn } from "@/lib/utils";
 import { allBlogs } from "contentlayer/generated";
 import { slug } from "github-slugger";
+import type { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  let formattedSlug = params.slug.replace("-", " ");
+  formattedSlug = formattedSlug[0].toUpperCase() + formattedSlug.slice(1);
+  return {
+    title: `${formattedSlug} Blogs`,
+    description: `Learn more about ${
+      formattedSlug === "all" ? "web development" : formattedSlug
+    } through best blogs and tutorials`,
+  };
+}
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {

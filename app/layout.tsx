@@ -1,5 +1,6 @@
 import "@/app/globals.css";
 import { siteMetaData } from "@/constants/siteMetaData";
+import { ThemeProvider } from "@/context/themeProvider";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
@@ -68,7 +69,7 @@ export default function RootLayout({
           "font-mr bg-light dark:bg-dark"
         )}
       >
-        {children}
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );
